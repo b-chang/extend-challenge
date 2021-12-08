@@ -17,14 +17,14 @@ const IMAGES_URL = "https://dog.ceo/api/breed/hound/images/random/55";
  *
  */
 
-type MyState = {
+type State = {
   images: [string];
   size: number;
   chunks: any[];
   page: number;
   error: any;
 };
-class App extends React.Component<{}, MyState> {
+class App extends React.Component<{}, State> {
 
   constructor(props:any) {
     super(props);
@@ -86,8 +86,8 @@ class App extends React.Component<{}, MyState> {
         </div>
         <div className="flex justify-center mt-10">
           <h1 className="text-4xl mx-5">Page {page+1}</h1>
-          {page > 0 ? <button className="btn" onClick={() => this.backPage()}>Back</button>: ''}
-          <button className="btn" onClick={() => this.nextPage()}>Next</button>
+          {page > 0 ? <button className="btn" data-testid="back-button" onClick={() => this.backPage()}>Back</button>: ''}
+          <button className="btn" data-testid="next-button" onClick={() => this.nextPage()}>Next</button>
         </div>
       </div>
     );
